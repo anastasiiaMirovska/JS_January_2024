@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework1</title>
+</head>
+<body>
+<!-- - Створити змінні. Присвоїти кожному з них значення: 'hello','owu','com', 'ua', 1, 10, -999, 123, 3.14, 2.7, 16, true, false.-->
+<!--Вивести кожну змінну за допомогою: console.log-->
+<script>
+    console.log("------------------------TASK1------------------------");
+    let text1 = 'hello';
+    let text2 = 'owu';
+    let text3 = 'com';
+    let text4 = 'ua';
+    let number1 = 1;
+    let number2 = 10;
+    let number3 = -999;
+    let number4 = 123;
+    let number5 = 3.14;
+    let number6 = 2.7;
+    let number7 = 17;
+    let bool_variable1 = true;
+    let bool_variable2 = false;
+    // console.log(text1, text2, text3, text4, number1, number2, number3, number4, number5, number6, number7,
+    //     bool_variable1, bool_variable2 );
+    console.log(text1);
+    console.log(text2);
+    console.log(text3);
+    console.log(text4);
+    console.log(number1);
+    console.log(number2);
+    console.log(number3);
+    console.log(number4);
+    console.log(number5);
+    console.log(number6);
+    console.log(number7);
+    console.log(bool_variable1);
+    console.log(bool_variable2);
+    console.log("------------------------------------------------");
+</script>
+
+<!-- - Створити 3 змінних firstName, middleName, lastName, наповнити їх своїм ПІБ. З'єднати їх в одну змінну person (Не об'єкт, просто за допомоги конкатенації)-->
+<script>
+    console.log("------------------------TASK2------------------------");
+    let firstName = 'Anastasiia';
+    let middleName = 'Andriiwna';
+    let lastName = 'Mirovska';
+    let allTogether = `${firstName} ${middleName} ${lastName}`;
+    console.log(allTogether)
+    console.log("------------------------------------------------");
+</script>
+
+<!--- За допомогою оператора typeof визначити типи наступних змінних та вивести їх в консоль.-->
+<!--let a = 100; let b = '100'; let c = true;-->
+<script>
+    console.log("-------------------------TASK3-----------------------");
+    let a = 100;
+    let b = '100';
+    let c = true;
+    console.log(typeof a);
+    console.log(typeof b);
+    console.log(typeof c);
+    console.log("------------------------------------------------");
+</script>
+
+<!--Додаткове для тих хто цікавився prompt`oм-->
+<!-- - За допомогою 3х різних prompt() отримати 3 слова які являються вашими Імям, По-Батькові та роками. та вивести в консоль-->
+<script>
+    console.log("-------------------------TASK4-----------------------");
+    let first_name = prompt("Введіть ваше ім'я", "firstName");
+    let middle_name = prompt("Введіть ваше По-Батькові", "middleName");
+    let last_name = prompt("Введіть ваше прізвище", "lastName");
+    console.log(`${first_name} ${middle_name} ${last_name}`)
+    console.log("------------------------------------------------");
+</script>
+</body>
+</html>
+

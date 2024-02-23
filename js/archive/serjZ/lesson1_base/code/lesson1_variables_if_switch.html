@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            .tatata {
+                font-size: 3em;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div>div 1</div>
+        <div class="target">div with class = target</div>
+        <p class="target">p with class = target</p>
+        <div id="point">div with id = point</div>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+
+        <script>
+
+            // checklist!
+            // let,var,const
+            // number
+            // string
+            //boolean
+            // if
+            // switch
+
+            // tips with parse ot types
+
+			// Вывод информации
+			console.log('hello');
+			document.write('yo!');
+			document.write('<h1>yo!</h1>');
+			// получение информации от пользователя
+			let answer = prompt('your question here');
+			console.log(answer);
+			document.write(answer);
+
+			/*Куда записывать информацию?*/
+			/*Переменные и их типы*/
+			let age = 31;
+			console.log(age);
+			let height = 187;
+			let normalWeight = height - 100;
+			console.log("normal weight for you is ", normalWeight);
+			// + - / * %
+			console.log(10 % 3); //1
+			let weight = 87.9;
+
+			console.log(weight);
+			let name = 'Vasya';
+			console.log(name);
+			name = "Petya";
+			console.log(name);
+			let status = true;
+			console.log(status);
+			status = 5 > 6;
+			console.log(status);
+			// > < >= <= == != === !==
+			//!? Где это используется?
+			let question = 5 > 6;
+			if (question) {
+				console.log('if question =  true you will see this');
+			} else {
+				console.log('if question =  false you will see this block');
+			}
+
+			let a = 10;
+			let b = 20;
+			let c = 30;
+			let d = 10;
+			if (d === a) {
+				console.log('d = 10');
+			} else if (d === b) {
+				console.log('d = 20');
+			} else if (d === c) {
+				console.log('d === 30');
+			} else {
+				console.log('d is unknow');
+			}
+
+			switch ('') {
+				case "start":
+					console.log('go');
+					break;
+				case 'stop':
+					console.log('you must stop');
+					break;
+				default:
+					console.log('wait');
+
+			}
+
+
+			// false -> false, 0, '', undefined, NaN, null
+
+			// console.log(!!'hello');
+			// console.log(!!100);
+			// console.log(!!-100);
+
+			// console.log(!!0);
+			// console.log(!!'');
+			// console.log(!!undefined);
+			//
+			// console.log(100 / 'hello');
+			// console.log(!!NaN);
+			//
+			// console.log(!!null);
+
+			// let answer = confirm('are you older than 18?');
+			// console.log(answer);
+
+			/**/
+			// let bool = true;
+			// bool = !bool;
+
+
+			// parseInt();
+			// parseFloat();
+			// let pow = Math.pow(3, 2);
+			// console.log(pow);
+			// let floor = Math.floor(3.99);
+			// console.log(floor);
+			// let round = Math.round(3.99);
+			// console.log(round);
+
+			// let random = Math.random();
+			// console.log(random);
+
+			// let random = Math.random()*50;
+			// console.log(random);
+
+			// let random = Math.random() * 50 + 10;
+			// console.log(random);
+
+
+        </script>
+    </body>
+</html>
