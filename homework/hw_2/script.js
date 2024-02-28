@@ -17,8 +17,8 @@ let book4 = {
     pageCount: 202,
     genre: 'drama',
     authors: [
-        author_1 = {name: 'Petro', age: 32,},
-        author_2 = {name: 'Vasyl', age: 34,}
+        {name: 'Petro', age: 32,},
+        {name: 'Vasyl', age: 34,}
     ]
 }
 let book5 = {
@@ -26,10 +26,10 @@ let book5 = {
     pageCount: 80,
     genre: 'tragedy',
     authors: [
-        author_1 = {name: 'Katia', age: 32,},
-        author_2 = {name: 'Volodymyr', age: 34,},
-        author_3 = {name: 'Oleksandr', age: 23,},
-        author_4 = {name: 'Maria', age: 18,}
+        {name: 'Katia', age: 32,},
+        {name: 'Volodymyr', age: 34,},
+        {name: 'Oleksandr', age: 23,},
+        {name: 'Maria', age: 18,}
     ]
 }
 let book6 = {
@@ -37,9 +37,9 @@ let book6 = {
     pageCount: 72,
     genre: 'poem',
     authors: [
-        author_1 = {name: 'Piter', age: 39,},
-        author_2 = {name: 'Lolita', age: 44,},
-        author_3 = {name: 'Igor', age: 92,},
+        {name: 'Piter', age: 39,},
+        {name: 'Lolita', age: 44,},
+        {name: 'Igor', age: 92,},
     ]
 }
 console.log(book6)
@@ -48,16 +48,16 @@ console.log(book6)
 // - Створити масив з 10 об'єктами які описують сутніть "користувач". Поля: name, username,password. Вивести в консоль пароль кожного користувача
 
 let users = [
-    user_1 = {name: 'Ivan', username: 'Ivanenko', password:'123456789'},
-    user_2 = {name: 'Petro', username: 'Petrenko', password:'98706521'},
-    user_3 = {name: 'Olena', username: 'Olenka', password:'14081982'},
-    user_4 = {name: 'Maria', username: 'Mariika', password:'28122003'},
-    user_5 = {name: 'Oles', username: 'Lesyk', password:'18102019'},
-    user_6 = {name: 'Volodymyr', username: 'Vol154u', password:'09032004'},
-    user_7 = {name: 'Katya', username: 'Kate12', password:'12081790'},
-    user_8 = {name: 'Yulia', username: 'Yu1i@', password:'11111987'},
-    user_9 = {name: 'Bohdan', username: 'Boh14dan', password:'04072010'},
-    user_10 = {name: 'Anastasiia', username: 'Sijka12', password:'12653478'}
+    {name: 'Ivan', username: 'Ivanenko', password:'123456789'},
+    {name: 'Petro', username: 'Petrenko', password:'98706521'},
+    {name: 'Olena', username: 'Olenka', password:'14081982'},
+    {name: 'Maria', username: 'Mariika', password:'28122003'},
+    {name: 'Oles', username: 'Lesyk', password:'18102019'},
+    {name: 'Volodymyr', username: 'Vol154u', password:'09032004'},
+    {name: 'Katya', username: 'Kate12', password:'12081790'},
+    {name: 'Yulia', username: 'Yu1i@', password:'11111987'},
+    {name: 'Bohdan', username: 'Boh14dan', password:'04072010'},
+    {name: 'Anastasiia', username: 'Sijka12', password:'12653478'}
 ]
 console.log(users[0].password,users[1].password,users[2].password,users[3].password,users[4].password,users[5].password,users[6].password,users[7].password,users[8].password,users[9].password)
 
