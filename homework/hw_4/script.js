@@ -30,7 +30,7 @@ function paragraph(text_arg){
     document.write(`<p>${text_arg}</p>`)
 }
 paragraph('I started from C language and now I`m writing code in JS. What`s more, I can work with C++ and Python.' +
-    ' I`m a wed-designer as well.');
+    ' I`m a web-designer as well.');
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
@@ -54,7 +54,7 @@ function ul_number(argument, number= 10){
 ul_number('Relax!',5);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
-// Не зовсім зрозуміла це завдання, зробила двома варіантами, надіюсь, щоч один правильний
+// Не зовсім зрозуміла це завдання, зробила трьома варіантами, надіюсь, щоч один правильний
 
 console.log('Варіант 1');
 function build_list1(...arguments){
@@ -103,7 +103,7 @@ function massive_out(massive){
     </div>`)
     }
 }
-massive = [
+let massive = [
     {id: 234167, name:'Petro', age: 45},
     {id: 547823, name:'Nadia', age: 50},
     {id: 145213, name:'Anna', age: 25}
