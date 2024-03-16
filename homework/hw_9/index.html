@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework 9</title>
+    <style>
+        .div-box {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .item {
+            width: 30vw;
+            height: 25vw;
+            background-color: #897ae9;
+            border: 5px solid #cfff75;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .member {
+            width: 28vw;
+            height: 80vh;
+            font-size: 20px;
+            border: 3px solid gold;
+            border-radius: 15px;
+            background-color: rgba(255, 215, 0, 0.03);
+            padding: 40px 20px;
+            margin: 15px;
+        }
+
+        .image {
+            height: 300px;
+        }
+
+        .courses-div {
+            width: 20vw;
+            border: 3px solid royalblue;
+            background-color: rgba(65, 105, 225, 0.02);
+            border-radius: 5px;
+            padding: 20px 10px;
+            margin: 15px;
+        }
+
+        .courses-div div {
+            border: 2px solid royalblue;
+            border-radius: 10px;
+            background-color: rgba(65, 105, 225, 0.05);
+            padding: 20px 10px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+<script>
+
+    // - створити блок,
+    let div_element = document.createElement('div');
+    div_element.innerText = 'Hel`o';
+    // - додати йому класи wrap, collapse, alpha, beta
+    div_element.classList.add('wrap');
+    div_element.classList.add('collapse');
+    div_element.classList.add('alpha');
+    div_element.classList.add('beta');
+    // - додати стилі(довільні значення) : колір фону, колір тексту, розмір тексту
+    //я додаватиму все вручну суто для практики. Можна використовувати стилі)
+    div_element.style.height = '80vh';
+    div_element.style.border = '5px solid yellow';
+    div_element.style.textAlign = 'center';
+    div_element.style.display = 'flex';
+    div_element.style.justifyContent = 'center';
+    div_element.style.alignItems = 'center';
+    div_element.style.background = 'purple';
+    div_element.style.color = 'yellow';
+    div_element.style.fontSize = '36px';
+    // - додати цей блок в body.
+    document.body.appendChild(div_element)
+    // - клонувати його повністю, та додати клон в body.
+    let div_element_clone = div_element.cloneNode(true) //якщо ми ставимо True, то це глибоке клонування, включаючи всі дочірні елементи
+    document.body.appendChild(div_element_clone)
+
+
+    // - Є масив:
+    //     ['Main','Products','About us','Contacts']
+    // Зробити ul в середині якої будуть лежати елементи масиву (кожен в своєму li)
+    let my_array = ['Main', 'Products', 'About us', 'Contacts'];
+    let ul_element = document.createElement('ul');
+    ul_element.style.padding = '40px';
+    ul_element.style.fontSize = '25px';
+    ul_element.style.background = 'yellow'
+    ul_element.style.color = 'purple';
+    for (let item of my_array) {
+        let li_element = document.createElement('li');
+        li_element.innerText = item;
+        ul_element.appendChild(li_element);
+    }
+    document.body.appendChild(ul_element);
+
+
+    // - Є масив
+    // let coursesAndDurationArray = [
+    //     {title: 'JavaScript Complex', monthDuration: 5},
+    //     {title: 'Java Complex', monthDuration: 6},
+    //     {title: 'Python Complex', monthDuration: 6},
+    //     {title: 'QA Complex', monthDuration: 4},
+    //     {title: 'FullStack', monthDuration: 7},
+    //     {title: 'Frontend', monthDuration: 4}
+    // ];
+    // Для кожного елементу масиву зробити блок в якому вивести інформацію про title та monthDuration
+    // Завдання робити через цикли.
+    let coursesAndDurationArray = [
+        {title: 'JavaScript Complex', monthDuration: 5},
+        {title: 'Java Complex', monthDuration: 6},
+        {title: 'Python Complex', monthDuration: 6},
+        {title: 'QA Complex', monthDuration: 4},
+        {title: 'FullStack', monthDuration: 7},
+        {title: 'Frontend', monthDuration: 4}
+    ];
+    let div_box = document.createElement('div');
+    div_box.classList.add('div-box');
+    for (let item of coursesAndDurationArray) {
+        let div_element = document.createElement('div');
+        div_element.style.width = '20vw';
+        div_element.style.height = '15vw';
+        div_element.style.border = '3px solid YellowGreen';
+        div_element.style.background = '#cfff75';
+        div_element.innerHTML = `<p>Назва: ${item.title}<br> Тривалість: ${item.monthDuration} місяці/ів</p>`;
+        div_box.appendChild(div_element)
+    }
+    document.body.appendChild(div_box)
+
+    // =========================
+    //
+    //     - Є масив
+    // let coursesAndDurationArray = [
+    //     {title: 'JavaScript Complex', monthDuration: 5},
+    //     {title: 'Java Complex', monthDuration: 6},
+    //     {title: 'Python Complex', monthDuration: 6},
+    //     {title: 'QA Complex', monthDuration: 4},
+    //     {title: 'FullStack', monthDuration: 7},
+    //     {title: 'Frontend', monthDuration: 4}
+    // ];
+    //
+    //
+    // За допомоги скріпта для кожного елементу масиву зробити <div class='item'> ,  в якому буде <h1 class='heading'>  з title  елементу, та <p class='description'> з monthDuration елементу.
+    //     Завдання робити через цикли.
+    let div_box2 = document.createElement('div');
+    div_box2.classList.add('div-box');
+    for (let item of coursesAndDurationArray) {
+        let div_element = document.createElement('div');
+        div_element.classList.add('item');
+        let h1_element = document.createElement('h1');
+        h1_element.classList.add('heading');
+        h1_element.innerText = item.title;
+        let p_element = document.createElement('p');
+        p_element.classList.add('description');
+        p_element.innerText = `${item.monthDuration} months`;
+        div_element.append(h1_element, p_element);
+        div_box2.appendChild(div_element);
+    }
+    document.body.appendChild(div_box2)
+    // ==========================
+    //
+    // - є масив simpsons, котрий лежить в arrays.js (на цей момент ви вже знаєте де він знаходиться)
+    // Проітерувати його, створиши для кожного об'єкту масиву <div class='member'> та наповнити його даними з об'єкту.
+    //     Якщо людською мовою: під кожного члена родини зробити блок та наповнити його інформацією з цього об'єкту
+
+    let simpsons = [
+        {
+            name: 'Bart',
+            surname: 'Simpson',
+            age: 10,
+            info: 'Бартолом\'ю ДжоДжо «Барт» Сімпсон (англ. Bartholomew JoJo «Bart» Simpson) — один із головних героїв мультиплікаційного серіалу Сімпсони. Барт — найстарша дитина Гомера і Мардж Сімпсон. У нього також є дві молодші сестри — Ліса і Меґґі. Барт є втіленням образу бешкетника та посереднього учня у школі. Разом зі своїм батьком Барт є одним із найвідоміших персонажів у цьому серіалі.',
+            photo: 'https://upload.wikimedia.org/wikipedia/uk/a/aa/Bart_simpson.png'
+        },
+        {
+            name: 'Homer',
+            surname: 'Simpson',
+            age: 40,
+            info: 'Гомер Джей Сімпсон (англ. Homer Jay Simpson) — один із головних героїв мультсеріалу «Сімпсони». Гомер — грубий і неввічливий батько родини, він має очевидні вади: товстий, лисий і не дуже розумний. Нерідко він поводиться як блазень, абсурдно, егоїстично і нетактовно, але все ж лишається симпатичним.',
+            photo: 'http://upload.wikimedia.org/wikipedia/en/0/02/Homer_Simpson_2006.png'
+        },
+        {
+            name: 'Marge',
+            surname: 'Simpson',
+            age: 38,
+            info: 'Марджорі Жаклін "Мардж" Сімпсон (у дівоцтві Був\'є) (англ. Marjorie Jacqueline "Marge" Simpson) - постійний персонаж мультиплікаційного серіалу "Сімпсони", її озвучує Джулія Кавнер. Зазвичай носить зелену сукню, червоні балетки, на шиї - намисто зі штучних перлів і їздить на помаранчевому універсалі. У неї шикарне синє волосся, яке вона зазвичай збирає в дуже високу зачіску. Очі кольору горіха (19s6e). Основне заняття - домогосподарка, більшу частину часу проводить у турботі про дім, дітей і Гомера. Образ Мардж копіює стереотип провінційної американської домогосподарки 50-х років. Мардж - єдиний член сім\'ї, який відвідує церкву добровільно. Намагається підтримувати моральність не тільки своєї сім\'ї, а й усього міста. Відмінно готує, особливо славляться її свинячі відбивні та зефір. Улюблена страва - локшина з маслом.',
+            photo: 'https://upload.wikimedia.org/wikipedia/ru/0/0b/Marge_Simpson.png'
+        },
+        {
+            name: 'Lisa',
+            surname: 'Simpson',
+            age: 9,
+            info: 'Ліза Марі Сімпсон (англ. Lisa Marie Simpson) - героїня мультиплікаційного серіалу "Сімпсони". Середня дитина в сім\'ї, восьмирічна дівчинка, що вирізняється з-поміж решти Сімпсонів насамперед своїм розумом і розсудливістю.',
+            photo: 'https://upload.wikimedia.org/wikipedia/ru/e/ec/Lisa_Simpson.png'
+        },
+        {
+            name: 'Maggie',
+            surname: 'Simpson',
+            age: 1,
+            info: 'Маргарет Евелін "Меггі" Сімпсон (англ. Margaret Evelyn "Maggie" Simpson) - персонаж мультсеріалу "Сімпсони". Уперше з\'явилася на телебаченні в шоу Трейсі Ульман, у короткометражці Good Night (англ.) рос. 19 квітня 1987 року. Меггі придумав і розробив карикатурист Метт Грейнінг, поки він чекав зустрічі з Джеймсом Л. Бруксом. Названа на честь молодшої сестри Грейнінга. Після появи в шоу Трейсі Ульман, через три роки сім\'я Сімпсонів отримала власний серіал на телеканалі Fox, дебют відбувся 17 грудня 1989 року.',
+            photo: 'https://upload.wikimedia.org/wikipedia/ru/9/9d/Maggie_Simpson.png'
+        },
+    ];
+    let div_box3 = document.createElement('div');
+    div_box3.classList.add('div-box');
+    for (let item of simpsons) {
+        let div_element = document.createElement('div');
+        div_element.classList.add('member');
+        let image = document.createElement('img');
+        image.classList.add('image');
+        image.src = item.photo;
+        let name = document.createElement('h3');
+        name.innerText = `Ім'я: ${item.name} ${item.surname}`
+        let surname = document.createElement('h3');
+        surname.innerText = `Прізвище: ${item.surname}`
+        let age = document.createElement('h3');
+        age.innerText = `Вік: ${item.age}`;
+        let info = document.createElement('p');
+        info.innerText = item.info;
+        div_element.append(image, name, surname, age, info);
+        div_box3.appendChild(div_element);
+    }
+    document.body.appendChild(div_box3)
+
+
+    // =========================
+    //     Цикл в циклі
+    // - Є масив coursesArray котрий лежить в arrays.js (на цей момент ви вже знаєте де він знаходиться)
+    //
+    // Створити для кожного елементу масиву свій блок, блок розділити блоками, в яких будуть зберігатись значення окремих властивостей, для властивості modules зробити список з елементами
+    // Приклад структири знаходиться у файлі example.png який лежить в папці з поточним фйлом
+    // ------------------
+
+    let coursesArray = [
+        {
+            title: 'JavaScript Complex',
+            monthDuration: 5,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js']
+        },
+        {
+            title: 'Java Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'angular', 'aws', 'docker', 'git', 'java core', 'java advanced']
+        },
+        {
+            title: 'Python Complex',
+            monthDuration: 6,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'angular', 'aws', 'docker', 'python core', 'python advanced']
+        },
+        {
+            title: 'QA Complex',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'git', 'QA/QC']
+        },
+        {
+            title: 'FullStack',
+            monthDuration: 7,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js', 'python', 'java']
+        },
+        {
+            title: 'Frontend',
+            monthDuration: 4,
+            hourDuration: 909,
+            modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'sass']
+        }
+    ];
+    let div_box4 = document.createElement('div');
+    div_box4.classList.add('div-box');
+    for (let item of coursesArray) {
+        let div_element = document.createElement('div');
+        div_element.classList.add('courses-div');
+        let title = document.createElement('div');
+        title.innerHTML = `Назва курсу: <h2>${item.title}</h2>`;
+        let monthDuration = document.createElement('div');
+        monthDuration.innerHTML = `Тривалість курсу: <h2>${item.monthDuration} міцяці/ів</h2>`;
+        let hourDuration = document.createElement('div');
+        hourDuration.innerHTML = `Кількість годин: <h2>${item.hourDuration}</h2>`;
+        let modules = document.createElement('div');
+        let ul_element = document.createElement('ul');
+        for (let module of item.modules) {
+            let li_element = document.createElement('li');
+            li_element.innerText = module;
+            ul_element.appendChild(li_element);
+        }
+        modules.appendChild(ul_element);
+        div_element.append(title, monthDuration, hourDuration, modules);
+        div_box4.appendChild(div_element);
+    }
+    document.body.appendChild(div_box4);
+</script>
+</body>
+</html>
