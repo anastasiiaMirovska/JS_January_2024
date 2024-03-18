@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        div{
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+<p id="text">Hello</p>
+<button id="clear">Clear</button>
+<div>
+    <input id="age" type="number" name="age" placeholder="Age">
+    <button id="submit-age">Submit</button>
+</div>
+
+<script>
+
+    // - Створити довільний елемент з id = text та створити кнопку.Використовуючи JavaScript, зробіть так, щоб при натисканні на кнопку зникав елемент з id="text".
+    let my_button = document.getElementById("clear");
+    let my_text = document.getElementById("text");
+    my_button.onclick = function(){
+        //my_text.innerText = "";
+        document.body.removeChild(my_text);
+    }
+
+
+    //     - створити інпут який приймає вік людини та кнопку яка підтверджує дію.При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи менше він ніж 18, та повідомити про це користувача
+    let age_input = document.getElementById("age");
+    let age_button = document.getElementById("submit-age");
+    age_button.onclick = function(){
+        let inform = document.createElement("p");
+        if(age_input.value<18){
+            inform.innerText = "User is under 18";
+        }
+        else{
+            inform.innerText = "User is mature."
+        }
+        document.body.appendChild(inform);
+    }
+
+</script>
+</body>
+</html>

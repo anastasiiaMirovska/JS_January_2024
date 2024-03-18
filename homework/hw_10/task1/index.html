@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework 10</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<form action="" name="form1" id="form1">
+    <input type="text" name="name" placeholder="Name">
+    <input type="text" name="surname" placeholder="Surname">
+    <input type="number" name="age" placeholder="Age">
+    <button>Submit</button>
+</form>
+
+<script>
+
+    // Стоврити форму з трьома полями для name, surname, age та кнопкою. При натисканні на кнопку зчитати дані з полів, та вивести об'єкт в документ. Іншими словами : заповниои форму, натиснули кнопку, під формою з'явився блок з вашим об'єктом
+    // let form1 = document.getElementsByName("form1");
+
+    let form1 = document.getElementById("form1");
+    form1.onsubmit = function(ev){
+        ev.preventDefault();
+        let my_block = document.createElement('div');
+        my_block.style.height = "100px";
+        my_block.style.width = "300px";
+        my_block.style.backgroundColor = "LightGreen";
+        let h2_el = document.createElement('h2');
+        h2_el.innerHTML =
+            `<span>Name: ${this.name.value}</span><br> <span>Surname: ${this.surname.value}</span> <br> <span>Age: ${this.age.value}</span>`;
+        my_block.appendChild(h2_el);
+        document.body.appendChild(my_block)
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

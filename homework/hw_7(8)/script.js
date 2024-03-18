@@ -82,7 +82,7 @@ Car.prototype.info = function(){
 Car.prototype.info2 = function() {
     for (let key in this) {
          if(this.hasOwnProperty(key) && key !== 'function'){
-             console.log(`${key} - ${this[key]}`);
+             console.log(`${key} - ${JSON.stringify(this[key])}`);
          }
     }
 }

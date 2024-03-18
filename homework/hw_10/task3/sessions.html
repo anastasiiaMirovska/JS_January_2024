@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task3</title>
+</head>
+<body>
+
+<script>
+    let div = document.createElement('div');
+    div.style.height = "fit-content";
+    div.style.padding = "20px"
+    div.style.backgroundColor ="LightGreen";
+    let general_info = document.createElement('p');
+    general_info.innerText = `Visits on site index.html :`;
+    div.appendChild(general_info);
+    let timestamps = JSON.parse(localStorage.getItem("visitTimestamp"));
+
+    if(!timestamps){
+        let deny = document.createElement('div');
+        deny.innerText = `There are no visits on site`;
+        div.appendChild(deny);
+    }
+
+    else{
+        let ul_list = document.createElement('ul');
+
+        timestamps.forEach(stamp=>{
+            let li_el = document.createElement('li');
+            li_el.innerText =
+                `${stamp.year}.${stamp.month+1}.${stamp.day}.${stamp.hour}.${stamp.minute}.${stamp.second}.${stamp.milisecond}`;
+            ul_list.appendChild(li_el);
+        })
+
+        div.appendChild(ul_list);
+        document.body.appendChild(div);
+    }
+</script>
+</body>
+</html>

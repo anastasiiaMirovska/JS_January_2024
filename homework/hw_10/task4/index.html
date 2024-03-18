@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task 4</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        #next{
+            left: 600px;
+            position: fixed;
+        }
+        #prev{
+            left: 350px;
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+<button id="next">Next</button>
+<button id="prev">Prev</button>
+<script>
+    // =========================
+    //     зробити масив на 100 об'єктів та дві кнопки prev next
+    // при завантаженні сторінки з'являються перші 10 об'єктів.
+    //     При натисканні next виводяться наступні 10 об'єктів
+    // При натисканні prev виводяться попередні 10 об'єктів
+    function print(index, number, array){
+        let div_ul = document.querySelectorAll("div>ul>li");
+        for (let i = index, j=0; i < index+number, j<number; i++, j++) {
+            div_ul[j].innerText = array[i];
+        }
+    }
+
+    function check(index, number, array){
+        let info = document.querySelector("p");
+        if(!array[index]){
+            info.innerText = "This iteration is impossible";
+            return false;
+        }
+        else{
+            info.innerText = "";
+            return true;
+        }
+    }
+
+    let my_array = [];
+    for (let number = 1; number <= 100; number++) {
+        my_array.push(number)
+    }
+
+    let next_button = document.getElementById('next');
+    let prev_button = document.getElementById('prev');
+    let index = 0;
+    let number = 10;
+
+
+    let div_block = document.createElement('div');
+    let ul_block = document.createElement('ul');
+    for(let i=0; i<number; i++){
+        let li_el = document.createElement('li');
+        ul_block.appendChild(li_el);
+    }
+    div_block.appendChild(ul_block);
+
+    let info_alert = document.createElement('p');
+    div_block.appendChild(info_alert);
+    document.body.appendChild(div_block);
+
+
+    print(index, number, my_array);
+    index += number;
+
+    next_button.onclick = function(){
+        if(check(index, number, my_array)){
+            print(index, number, my_array);
+            index += number;
+            console.log(index)
+        }
+    }
+    prev_button.onclick = function(){
+        if(check(index-2*number, number, my_array)){
+            index -= number;
+            print(index-number, number, my_array);
+            console.log(index)
+        }
+    }
+
+
+</script>
+</body>
+</html>

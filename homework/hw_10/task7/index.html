@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task7</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /*input{*/
+        /*    height: 50px;*/
+        /*    width: 200px;*/
+        /*    background-color: #fffbf1;*/
+        /*    border: 2px solid #ffd66e;*/
+        /*    font-size: 18px;*/
+        /*    color: #be8c01;*/
+        /*    text-align: center;*/
+        /*}*/
+        /*input::placeholder{*/
+        /*    color: #be8c01;*/
+        /*}*/
+        /*button{*/
+        /*    height: 50px;*/
+        /*    width: 200px;*/
+        /*    background-color: #ffd66e;*/
+        /*    border: 2px solid #fffbf1;*/
+        /*    font-size: 18px;*/
+        /*    color: #c76602;*/
+        /*}*/
+        /*button:focus{*/
+        /*    transform: scale(0.9);*/
+        /*    transition: 0.1s;*/
+        /*}*/
+        /*button:active{*/
+        /*    transform: scale(1);*/
+        /*}*/
+    </style>
+</head>
+<body>
+<input id="row-num" type="number" name="row-num" placeholder="Row number">
+<input id="cell-num" type="number" name="cell-num" placeholder="Cell number">
+<input id="cell-content" type="text" name="cell-content" placeholder="Cell content">
+<button id="submit-btn">Submit</button>
+<script>
+    // *** Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість комірок, третій вміст комірок.
+    //     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
+    // (Додаткова частина для завдання)
+
+    let row_num = document.getElementById("row-num");
+    let cell_num = document.getElementById("cell-num");
+    let cell_content = document.getElementById("cell-content");
+    let submit_btn = document.getElementById("submit-btn");
+
+
+    submit_btn.onclick= function(){
+        let table = document.createElement("table");
+        table.style.border ="2px solid";
+        table.style.borderColor ="#ffd66e";
+        table.style.margin = "15px 0";
+        // В цей інпут треба вводити дані у фрматі JSON
+        let content = JSON.parse(cell_content.value);
+        console.log(content[2]);
+        for(let i=0, num= 0; i<row_num.value; i++){
+            let row = document.createElement("tr");
+            row.style.border ="2px solid";
+            row.style.borderColor ="#ffd66e";
+            for(let k=0; k<cell_num.value; k++, num++){
+                let cell = document.createElement("td");
+                cell.style.border ="2px solid";
+                cell.style.borderColor ="#ffd66e";
+                cell.style.width = "40px";
+                cell.style.textAlign = "center"
+                if(content[num] === undefined){
+                    cell.innerText = "---";
+                }
+                else{
+                    cell.innerText = content[num];
+                }
+                // cell.innerText = content[num] || "---";
+                row.appendChild(cell);
+            }
+            table.appendChild(row);
+        }
+        document.body.appendChild(table)
+    }
+
+</script>
+</body>
+</html>

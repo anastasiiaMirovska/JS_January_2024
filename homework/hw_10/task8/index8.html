@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task8</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div id="block">
+</div>
+<script>
+    // *** (подібне було вище, але...будьте уважні в другій частині) створити сторінку з довільним блоком, в середині якого є значення "100грн"
+    // при перезавантаженні сторінки до значаення додається по 10грн, але !!!
+    //     зміна ціни відбувається тільки на перезавантаження, які відбулись пізніше ніж 10 секунд після попереднього.
+    //     При перезавантаженні, яке відбулось раніше ніж минуло 10 секунд - нічого не відбувається
+
+    let div_el = document.getElementById("block");
+    let num = localStorage.getItem("number");
+    let my_time = localStorage.getItem("time");
+
+    if(!my_time || !num){
+        my_time = new Date();
+        my_time = my_time.getTime()
+        num = 100;
+    }
+    else{
+        my_time = parseInt(my_time);
+        num = parseInt(num);
+    }
+
+    window.onload = function(){
+        let now = new Date();
+        if(now.getTime() - my_time > 10000){
+            num += 10;
+        }
+        my_time = now.getTime();
+        div_el.innerText = `${num} грн`;
+        localStorage.setItem("number", num);
+        localStorage.setItem("time", JSON.stringify(my_time));
+    }
+
+</script>
+</body>
+</html>
