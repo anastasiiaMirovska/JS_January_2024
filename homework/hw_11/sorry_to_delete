@@ -1,0 +1,51 @@
+    function go_through(element, array, depth = 0){
+        "Ця функція переглядає об'єкт і виводить його на екран. Якщо там міститься масив/об'єкт, то за допомогою рекурсії функція проходиться по ньому і виводить змінні на екран. depth відповідає за відступи - структуризацію і візуалізацію виклику"
+
+        if(typeof element ==="object"){ // Якщо елементом є об'єкт
+            for(let item in element){
+                go_through(item, element, depth);
+            }
+        }
+
+        else if(Array.isArray(array[element])){
+            let p = document.createElement("p");
+            p.style.marginLeft = `${depth * 60}px`;
+            p.innerText = `${element}:`;
+            document.body.appendChild(p);
+            for(let item of array[element]){
+                go_through(item, element, depth + 1);
+                let dashed_line = document.createElement("p");
+                dashed_line.style.marginLeft = `${depth * 60}px`;
+                dashed_line.innerText =
+                    "--------------------------------------------------------------------------------------------------------------";
+                document.body.appendChild(dashed_line);
+            }
+        }
+        else if(typeof element ==="function"){
+            console.log("Function found:", element.toString());
+        }
+        else{
+
+            let dummy = array[element].toString();
+            if(dummy.startsWith("http")){// Якщо характеристика починається із http, тобто є посиланням на фото, то ми виводимо його на екран:
+                let img_name = document.createElement("p");
+                img_name.innerText = `${element}:`;
+                img_name.style.marginLeft = `${depth * 60}px`;
+                document.body.appendChild(img_name);
+                let image = document.createElement("img");
+                image.style.marginLeft = `${depth * 60}px`;
+                image.src = array[element];
+                document.body.appendChild(image);
+                let br = document.createElement("br");
+                document.body.appendChild(br);
+            }
+
+            else{
+                let p = document.createElement("p");
+                p.style.marginLeft = `${depth * 60}px`;
+                p.innerText = `${element}: ${array[element]}`;
+                document.body.appendChild(p);
+            }
+
+        }
+    }

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homework 11 Task2</title>
+    <style>
+        img{
+            width:300px;
+            height:300px;
+        }
+    </style>
+</head>
+<body>
+<div class="task2"></div>
+<script>
+    //     - взяти https://dummyjson.com/docs/recipes та вивести інформацію про всі рецепти. Інгредієнти повинні бути список під час відображення.
+
+    function go_through(key, value, depth = 0) {
+        if (typeof value === "object") {
+            let p = document.createElement("p");
+            p.style.marginLeft = `${depth * 60}px`;
+            p.innerText = `${key}:`;
+            document.body.appendChild(p);
+            for (let subKey in value) {
+                go_through(subKey, value[subKey], depth + 1);
+            }
+        }
+        else {
+            if(value.toString() && value.toString().startsWith("http")){// Якщо характеристика починається із http, тобто є посиланням на фото, то ми виводимо його на екран:
+                let img_name = document.createElement("p");
+                img_name.innerText = `${key}:`;
+                img_name.style.marginLeft = `${depth * 60}px`;
+                document.body.appendChild(img_name);
+                let image = document.createElement("img");
+                image.style.marginLeft = `${depth * 60}px`;
+                image.src = value;
+                document.body.appendChild(image);
+                let br = document.createElement("br");
+                document.body.appendChild(br);
+            }
+
+            else{
+                let p = document.createElement("p");
+                p.style.marginLeft = `${depth * 60}px`;
+                p.innerText = `${key}: ${value}`;
+                document.body.appendChild(p);
+            }
+        }
+    }
+
+
+    fetch(`https://dummyjson.com/recipes`)
+        .then(res => res.json())
+        .then(result =>{
+            console.log(result);
+            for(let info in result){
+                go_through(info, result[info])
+            }
+        });
+
+
+
+
+    //Перша спроба:
+    // fetch("https://dummyjson.com/recipes")
+    //     .then(res => res.json())
+    //     .then(income =>{
+    //         console.log(income);
+    //         let div = document.getElementsByClassName("task2")[0];
+    //         for(let recipe in income["recipes"]){
+    //             for(let item in income["recipes"][recipe]){
+    //                 if(Array.isArray(income["recipes"][recipe][item])){
+    //                     let title = document.createElement("b");
+    //                     title.innerText = `${item} :`;
+    //                     div.appendChild(title);
+    //                     let ul = document.createElement("ol");
+    //                     for(let element in income["recipes"][recipe][item]){
+    //                         let li = document.createElement("li");
+    //                         li.innerHTML =
+    //                             `${income["recipes"][recipe][item][element]} <br>`
+    //                         ul.appendChild(li);
+    //                     }
+    //                     div.appendChild(ul);
+    //                 }
+    //                 else{
+    //                     let span = document.createElement("span")
+    //                     span.innerHTML =`<b>${item}</b>: ${income["recipes"][recipe][item]} <br>`;
+    //                     div.appendChild(span)
+    //                 }
+    //             }
+    //             let dashed_line = document.createElement("span");
+    //             dashed_line.innerText =
+    //                 "\n------------------------------------------------------------------------------------------------------------------------------------------------\n"
+    //             div.appendChild(dashed_line);
+    //         }
+    //     })
+
+</script>
+</body>
+</html>

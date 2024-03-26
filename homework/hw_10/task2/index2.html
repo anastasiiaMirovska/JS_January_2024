@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Task2</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<script>
+    // ==========================
+    // є сторінка, на якій є блок, у якому знаходиться цифра. написати код, який при кожному перезавантажені сторінки буде додавати до неї +1
+    let div_block = document.createElement('div');
+    let h3_el = document.createElement('h3');
+    let number = localStorage.getItem('number');
+
+    if(!number){
+        number = 0;
+    }
+    else{
+        number = JSON.parse(number);
+    }
+
+    window.onload = function(){
+        number+=1
+        h3_el.innerText = `${number}`;
+        localStorage.setItem('number', JSON.stringify(number));
+    }
+    div_block.appendChild(h3_el);
+    document.body.appendChild(div_block);
+
+
+</script>
+</body>
+</html>
